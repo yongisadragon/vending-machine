@@ -1,0 +1,366 @@
+/* header */
+header.banner {
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  width: 386px;
+  margin-bottom: 68px;
+}
+.banner img {
+  width: 386px;
+  aspect-ratio: 386/164;
+}
+
+.whole-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 748px;
+  margin: 0 auto;
+}
+
+.bottom-wrapper {
+  display: flex;
+  gap: 28px;
+}
+
+/* left */
+.left-wrapper {
+  min-width: 360px;
+  box-sizing: border-box;
+  background-color: white;
+  padding: 31px 27px 27px;
+  width: calc(100% - 60px);
+}
+
+.container.items {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-content: space-between;
+  height: 272px;
+  margin-bottom: 20px;
+}
+
+.container.items label {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  text-align: center;
+  align-items: center;
+  background-color: white;
+
+  width: 94px;
+  height: 130px;
+  border-radius: 10px;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
+  transition: 0.3s;
+}
+
+.container.items button:disabled::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 94px;
+  height: 130px;
+  background: url(img/품절\ 표시.svg) no-repeat;
+}
+
+/* button 내부에 p태그가 올 수 없음에 따라 p태그를 span으로 대체하고 button의 위치를 수정하는 과정에서 호버 기능에 오류가 생겨 해결하지 못함.. */
+.container.items label:not(:nth-child(2)):hover {
+  filter: brightness(80%);
+  outline: 3px solid var(--color-main);
+}
+
+.container.items img {
+  width: 36px;
+}
+
+.container.items .name {
+  font-size: var(--font-size-cola);
+  font-weight: 500;
+}
+
+.container.items .price {
+  font-size: var(--font-size-price);
+  color: white;
+  background-color: var(--color-main);
+
+  width: 70px;
+  height: 22px;
+  line-height: 22px;
+  border-radius: 50px;
+}
+
+button[type="button"] {
+  border-style: none;
+}
+
+input[type="text"] {
+  border-style: none;
+}
+
+.container.calc {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.container.calc .change,
+.insert,
+.cart {
+  width: 200px;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+.container.calc .change {
+  background-color: var(--color-bg);
+  font-size: var(--font-size-change);
+  padding: 6px 10px;
+}
+.change .str {
+  float: left;
+}
+.change .num {
+  float: right;
+}
+.container.calc .insert {
+  padding: 6px 6px;
+  border: 1px solid #bdbdbd;
+  font-size: var(--font-size-button);
+}
+.container.calc .cart {
+  background-color: var(--color-bg);
+  border: 1px solid #bdbdbd;
+  font-size: var(--font-size-button);
+}
+
+.container.calc .cart {
+  height: 106px;
+  overflow-y: scroll;
+}
+.container.calc .cart ul {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+  gap: 6px;
+}
+
+.cart::-webkit-scrollbar {
+  width: 12px;
+}
+.cart::-webkit-scrollbar-track {
+  background-color: rgba(0, 0, 0, 0);
+}
+.cart::-webkit-scrollbar-thumb {
+  height: 79px;
+  border: 4px solid rgba(234, 232, 254, 1);
+  background-color: white;
+  border-radius: 20px;
+}
+
+.cart .cart-item {
+  display: flex;
+  align-items: center;
+
+  height: 46px;
+  width: 170px;
+  border-radius: 5px;
+  padding: 8px 8px 8px 6px;
+  margin: 0 4px 0 12px;
+  background-color: white;
+  box-sizing: border-box;
+}
+.cart .cart-item:first-child {
+  margin-top: 12px;
+}
+.cart .cart-item:last-child {
+  margin-bottom: 12px;
+}
+.cart-item .name {
+  font-size: var(--font-size-cola);
+}
+.cart-item img {
+  /* display: inline-block; */
+  margin-right: 10px;
+  width: 18px;
+}
+
+.cart-item .count {
+  margin-left: auto;
+  position: relative;
+  width: 30px;
+  height: 30px;
+  border: 1px solid #bdbdbd;
+  border-radius: 5px;
+}
+.cart-item .count p {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.container.calc button {
+  width: 94px;
+  font-size: var(--font-size-button);
+  font-weight: 500;
+  border-radius: 5px;
+  transition: 0.3s;
+}
+.container.calc button:not(.cart-button) {
+  background-color: white;
+  height: 32px;
+  box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.5);
+}
+
+.container.calc .cart-button > button {
+  height: 106px;
+  color: white;
+  font-weight: 700;
+  background-color: var(--color-main);
+}
+
+.container.calc button:hover {
+  filter: brightness(80%);
+}
+
+/* right */
+section.right-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.container.wallet {
+  width: 360px;
+  padding: 9px 27px;
+  background-color: white;
+  box-sizing: border-box;
+}
+
+.container.wallet .wallet-box {
+  display: flex;
+  justify-content: space-between;
+  background-color: var(--color-bg);
+  padding: 6px 10px;
+  border-radius: 5px;
+}
+
+.container.wallet .wallet-box .str2 {
+  font-size: var(--font-size-change);
+  font-weight: 500;
+}
+.container.wallet .wallet-box .num2 {
+  font-size: var(--font-size-change);
+  font-weight: 700;
+}
+
+.container.gain {
+  width: 360px;
+  padding: 25px 27px 26px;
+  background-color: white;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.container.gain .gain-text {
+  font-size: var(--font-size-change);
+  font-weight: 700;
+  margin-bottom: 13px;
+}
+
+.container.gain .gain-box {
+  width: 306px;
+  height: 364px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--color-bg);
+  border: 1px solid #bdbdbd;
+  border-radius: 5px;
+  margin-bottom: 8px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.gain-box::-webkit-scrollbar {
+  width: 12px;
+}
+.gain-box::-webkit-scrollbar-track {
+  background-color: rgba(0, 0, 0, 0);
+}
+.gain-box::-webkit-scrollbar-thumb {
+  /* height: 30px; */
+  border: 4px solid rgba(234, 232, 254, 1);
+  background-color: white;
+  border-radius: 20px;
+}
+
+.gain-box ul {
+  min-height: 1000px;
+  /* padding-top: 20px; */
+}
+
+.gain-box .cart-item {
+  display: flex;
+  align-items: center;
+  height: 46px;
+  width: 276px;
+  border-radius: 5px;
+  padding: 8px 8px 8px 6px;
+  margin: 0 10px 0 12px;
+  background-color: white;
+  box-sizing: border-box;
+}
+.gain-box .cart-item:first-child {
+  margin-top: 12px;
+}
+.gain-box .cart-item:not(:first-child) {
+  margin-top: 6px;
+}
+
+.right-wrapper .total {
+  margin-left: auto;
+  font-weight: 500;
+  font-size: var(--font-size-price);
+}
+
+/* media */
+@media (max-width: 748px) {
+  body {
+    background-color: white;
+  }
+  header.banner {
+    margin-bottom: 0px;
+  }
+  header.banner img {
+    width: 166px;
+  }
+  .whole-wrapper {
+    width: 360px;
+    margin: 0 auto;
+  }
+  .bottom-wrapper {
+    gap: 0;
+    flex-direction: column;
+    /* width: 360px; */
+  }
+  .bottom-wrapper .left-wrapper {
+    padding-top: 22px;
+    padding-bottom: 11px;
+  }
+  section.right-wrapper {
+    gap: 6px;
+  }
+  .container.gain {
+    padding-bottom: 43px;
+  }
+}
